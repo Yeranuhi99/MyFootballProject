@@ -44,6 +44,17 @@ namespace MyFootballProject.Services
             };
         }
 
+        public List<PresidentDropDownVM> GetListForDropdown()
+        {
+            var data = _presidentrepository.GetAll();
+            return data.Select(p => new PresidentDropDownVM
+            {
+                Id = p.Id,
+                FirstName = p.FirstName,
+                LasttName = p.LastName,   
+            }).ToList();
+        }
+
         public void Update(PresidentAddEditVM President)
         {
             var entity = _presidentrepository.GetById(President.Id);

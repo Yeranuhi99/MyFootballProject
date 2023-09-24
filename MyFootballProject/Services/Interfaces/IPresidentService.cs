@@ -8,5 +8,6 @@ namespace MyFootballProject.Services.Interfaces
         public void Update(PresidentAddEditVM President);
         public PresidentAddEditVM GetById(int id);
         public void Delete(int id);
+        public List<PresidentDropDownVM> GetListForDropdown();
     }
 }

@@ -8,5 +8,6 @@ namespace MyFootballProject.Services.Interfaces
         public void Update(StadiumAddEditVM Stadium);
         public StadiumAddEditVM GetById(int id);
         public void Delete(int id);
+        public List<StadiumDropDownVM> GetListForDropdown();
     }
 }

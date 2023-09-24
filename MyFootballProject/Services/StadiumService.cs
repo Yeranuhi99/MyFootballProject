@@ -43,6 +43,16 @@ namespace MyFootballProject.Services
             };
         }
 
+        public List<StadiumDropDownVM> GetListForDropdown()
+        {
+            var data = _stadiumrepository.GetAll();
+            return data.Select(f => new StadiumDropDownVM
+            {
+                Id = f.Id,
+                Name = f.Name,
+            }).ToList();
+        }
+
         public void Update(StadiumAddEditVM Stadium)
         {
             var entity = _stadiumrepository.GetById(Stadium.Id);

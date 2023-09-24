@@ -9,9 +9,13 @@ namespace MyFootballProject.Controllers
     public class ClubController : Controller
     {
         private readonly IClubService _clubservice;
-        public ClubController(IClubService clubservice)
+        private readonly IStadiumService _stadiumservice;
+        private readonly IPresidentService _presidentservice;
+        public ClubController(IClubService clubservice, IStadiumService stadiumservice, IPresidentService presidentservice)
         {
             _clubservice = clubservice;
+            _stadiumservice = stadiumservice;
+            _presidentservice = presidentservice;
         }
         public IActionResult Index()
         {
@@ -20,6 +24,8 @@ namespace MyFootballProject.Controllers
         [HttpGet]
         public IActionResult AddEdit(int? id)
         {
+            ViewBag.StadiumDropDown = _stadiumservice.GetListForDropdown();
+            ViewBag.PresidentDropDown = _presidentservice.GetListForDropdown();
             ClubAddEditVM model = id.HasValue ?
                 _clubservice.GetById(id.Value) :
                 new ClubAddEditVM();

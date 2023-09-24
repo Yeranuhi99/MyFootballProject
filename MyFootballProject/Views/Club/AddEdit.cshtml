@@ -46,17 +46,25 @@
 
         </label>
     </div>
+        <div>
+            <label> Stadium </label>
+            <select asp-for="StadiumId">
+                <option>Please select the stadium </option>
+                @foreach (StadiumDropDownVM item in ViewBag.StadiumDropDown)
+                {
+                    <option value="item.Id">@item.Name</option>
+                }
+            </select>
+        </div>
     <div>
-        <label>
-            President
-            <input asp-for="PresidentId" />
-        </label>
-    </div>
-    <div>
-        <label>
-            Stadium
-            <input asp-for="StadiumId" />
-        </label>
+        <label>President</label>
+        <select asp-for="PresidentId">
+            <option> Please select the president</option>
+            @foreach(PresidentDropDownVM item in ViewBag.PresidentDropDown)
+            {
+                   <option value="item.Id">@item.FirstName + @item.LasttName</option> 
+            }
+        </select>
     </div>
     <button type="submit"> Save </button>
     </form>
