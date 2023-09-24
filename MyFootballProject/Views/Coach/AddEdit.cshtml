@@ -1,0 +1,49 @@
+﻿@using MyFootballProject.ViewModels
+@model CoachAddEditVM
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddEdit</title>
+</head>
+<body>
+    <h1>Add or edit coach of the club</h1>
+    <form method="post">
+        <div>
+            <label>
+                First Name
+                <input asp-for="FirstName" />
+            </label>
+        </div>
+        <div>
+            <label>
+                Last Name
+                <input asp-for="LastName" />
+            </label>
+        </div>
+        <div>
+            <label>
+                Date of birth
+                <input type="date" asp-for="DOB" />
+            </label>
+        </div>
+        <div>
+            <label> Select the club </label>
+            <select asp-for="ClubId">
+            <option>Please select the club </option>
+            @foreach (ClubDropDownVM item in ViewBag.Clubdropdown)
+            {
+                <option value="item.Id">@item.Name</option>
+            }
+            </select>
+        </div>
+        
+        <button type="submit"> Save </button>
+    </form>
+</body>
+</html>

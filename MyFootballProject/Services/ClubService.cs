@@ -48,6 +48,17 @@ namespace MyFootballProject.Services
                 StadiumId = entity.StadiumId,
             };
         }
+
+        public List<ClubDropDownVM> GetListForDropdown()
+        {
+            var data = _clubRepository.GetAll();
+            return data.Select(f => new ClubDropDownVM
+            {
+                Id = f.Id,
+                Name = f.Name,
+            }).ToList();
+        }
+
         public void Update(ClubAddEditVM Club)
         {
             var entity = _clubRepository.GetById(Club.Id);

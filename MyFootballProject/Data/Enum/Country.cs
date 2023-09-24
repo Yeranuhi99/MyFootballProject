@@ -42,6 +42,7 @@ namespace MyFootballProject.Data.Enum
         Cambodia,
         Cameroon,
         Canada,
+        [Display(Name = "Central African Republic")]
         Central_African_Republic,
         Chad,
         Chile,
@@ -49,20 +50,27 @@ namespace MyFootballProject.Data.Enum
         Colombia,
         Comoros,
         Congo,
+        [Display(Name = "Costa Rica")]
         Costa_Rica,
+        [Display(Name = "Côte dIvoire")]
         Côte_dIvoire,
         Croatia,
         Cuba,
         Cyprus,
+        [Display(Name = "Czech Republic")]
         Czech_Republic,
         Denmark,
         Djibouti,
         Dominica,
+        [Display(Name = "Dominican Republic")]
         Dominican_Republic,
+        [Display(Name = "East Timor")]
         East_Timor,
         Ecuador,
         Egypt,
+        [Display(Name = "El Salvador")]
         El_Salvador,
+        [Display(Name = "Equatorial Guinea")]
         Equatorial_Guinea,
         Eritrea,
         Estonia,
@@ -72,6 +80,7 @@ namespace MyFootballProject.Data.Enum
         Finland,
         France,
         Gabon,
+        [Display(Name = "The Gambia")]
         The_Gambia,
         Georgia,
         Germany,
@@ -98,7 +107,9 @@ namespace MyFootballProject.Data.Enum
         Kazakhstan,
         Kenya,
         Kiribati,
+        [Display(Name = "Korea North")]
         Korea_North,
+        [Display(Name = "Korea South")]
         Korea_South,
         Kosovo,
         Kuwait,
@@ -118,6 +129,7 @@ namespace MyFootballProject.Data.Enum
         Maldives,
         Mali,
         Malta,
+        [Display(Name = "Marshall Islands")]
         Marshall_Islands,
         Mauritania,
         Mauritius,
@@ -134,16 +146,19 @@ namespace MyFootballProject.Data.Enum
         Nauru,
         Nepal,
         Netherlands,
+        [Display(Name = "New Zealand")]
         New_Zealand,
         Nicaragua,
         Niger,
         Nigeria,
+        [Display(Name = "North Macedonia")]
         North_Macedonia,
         Norway,
         Oman,
         Pakistan,
         Palau,
         Panama,
+        [Display(Name = "Papua New Guinea")]
         Papua_New_Guinea,
         Paraguay,
         Peru,
@@ -154,26 +169,37 @@ namespace MyFootballProject.Data.Enum
         Romania,
         Russia,
         Rwanda,
+        [Display(Name = "Saint Kitts and Nevis")]
         Saint_Kitts_and_Nevis,
+        [Display(Name = "Saint Lucia")]
         Saint_Lucia,
+        [Display(Name = "Saint Vincent and the Grenadines")]
         Saint_Vincent_and_the_Grenadines,
         Samoa,
+        [Display(Name = "San Marino")]
         San_Marino,
+        [Display(Name = "Sao Tome and Principe")]
         Sao_Tome_and_Principe,
+        [Display(Name = "Saudi Arabia")]
         Saudi_Arabia,
         Senegal,
         Serbia,
         Seychelles,
+        [Display(Name = "Sierra Leone")]
         Sierra_Leone,
         Singapore,
         Slovakia,
         Slovenia,
+        [Display(Name = "Solomon Islands")]
         Solomon_Islands,
         Somalia,
+        [Display(Name = "South Africa")]
         South_Africa,
         Spain,
+        [Display(Name = "Sri Lanka")]
         Sri_Lanka,
         Sudan,
+        [Display(Name = "Sudan South")]
         Sudan_South,
         Suriname,
         Sweden,
@@ -185,6 +211,7 @@ namespace MyFootballProject.Data.Enum
         Thailand,
         Togo,
         Tonga,
+        [Display(Name = "Trinidad and Tobago")]
         Trinidad_and_Tobago,
         Tunisia,
         turkey,
@@ -192,8 +219,11 @@ namespace MyFootballProject.Data.Enum
         Tuvalu,
         Uganda,
         Ukraine,
+        [Display(Name = "United Arab Emirates")]
         United_Arab_Emirates,
+        [Display(Name = "United Kingdom")]
         United_Kingdom,
+        [Display(Name = "United States")]
         United_States,
         Uruguay,
         Uzbekistan,
