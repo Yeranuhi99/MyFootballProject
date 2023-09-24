@@ -1,0 +1,45 @@
+﻿@using MyFootballProject.ViewModels
+@model StadiumAddEditVM
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddEdit</title>
+</head>
+<body>
+
+    <h1>Add or edit the stadium of the club</h1>
+    <form method="post">
+        <div>
+            <label>
+                Name
+                <input asp-for="Name" />
+            </label>
+        </div>
+        <div>
+            <label>
+                Founding date
+                <input type="date" asp-for="FoundingDate" />
+            </label>
+        </div>
+        <div>
+            <label>
+                Address
+                <input asp-for="Address" />
+            </label>
+        </div>
+        <div>
+            <label>
+                Capacity
+                <input asp-for="Capacity" />
+            </label>
+        </div>
+        <button type="submit"> Save </button>
+    </form>
+</body>
+</html>

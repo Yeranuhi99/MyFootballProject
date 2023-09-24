@@ -1,0 +1,64 @@
+﻿@using MyFootballProject.Data.Enum;
+@using MyFootballProject.ViewModels
+@model ClubAddEditVM
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Add or Edit your clubs</title>
+</head>
+<body>
+    <h1>Add or edit the club</h1>
+    <form method="post">
+    <div>
+        <label>
+            Name
+            <input asp-for="Name" />
+        </label>
+    </div>
+    <div>
+        <label>
+            Day of foundation
+            <input type="date" asp-for="FoundingDate" />
+        </label>
+    </div>
+    <div>
+        <label>
+            League
+            <select asp-for="League" asp-items="Html.GetEnumSelectList<League>()">
+                <option>Select League</option>
+            </select>
+        </label>
+    </div>
+
+    <div>
+        <label>
+            Country
+            <select asp-for="Country" asp-items="Html.GetEnumSelectList<Country>()">
+                <option>Select Country</option>
+            </select>
+
+        </label>
+    </div>
+    <div>
+        <label>
+            President
+            <input asp-for="PresidentId" />
+        </label>
+    </div>
+    <div>
+        <label>
+            Stadium
+            <input asp-for="StadiumId" />
+        </label>
+    </div>
+    <button type="submit"> Save </button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,48 @@
+﻿@using MyFootballProject.Data.Enum;
+@using MyFootballProject.ViewModels 
+@model PresidentAddEditVM
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Add or edit club's president's info'</title>
+</head>
+<body>
+    <h1>Add or edit president of the club</h1>
+        <form method="post">
+            <div>
+                <label>
+                    First Name
+                    <input asp-for="FirstName" />
+                </label>
+            </div>
+        <div>
+            <label>
+                Last Name
+                <input asp-for="LastName" />
+            </label>
+        </div>
+            <div>
+                <label>
+                    Date of birth
+                    <input type="date" asp-for="DOB" />
+                </label>
+            </div>
+            <div>
+                <label>
+                    Country
+                    <select asp-for="Country" asp-items="Html.GetEnumSelectList<Country>()">
+                        <option>Select Country</option>
+                    </select>
+
+                </label>
+            </div>
+            <button type="submit"> Save </button>
+        </form>
+</body>
+</html>
