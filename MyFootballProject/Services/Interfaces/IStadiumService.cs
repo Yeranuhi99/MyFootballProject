@@ -1,4 +1,5 @@
-﻿using MyFootballProject.ViewModels;
+﻿using MyFootballProject.Data.Entities;
+using MyFootballProject.ViewModels;
 
 namespace MyFootballProject.Services.Interfaces
 {
@@ -9,5 +10,6 @@ namespace MyFootballProject.Services.Interfaces
         public StadiumAddEditVM GetById(int id);
         public void Delete(int id);
         public List<StadiumDropDownVM> GetListForDropdown();
+        public List<Stadium> GetAll();
     }
 }

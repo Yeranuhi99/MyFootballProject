@@ -31,6 +31,12 @@ namespace MyFootballProject.Services
         _stadiumrepository.Delete(entity);
         }
 
+        public List<Stadium> GetAll()
+        {
+            var data = _stadiumrepository.GetAll();
+            return data;
+        }
+
         public StadiumAddEditVM GetById(int id)
         {
             var entity = _stadiumrepository.GetById(id);

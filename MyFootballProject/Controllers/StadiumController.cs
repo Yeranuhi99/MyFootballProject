@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using MyFootballProject.Services;
 using MyFootballProject.Services.Interfaces;
 using MyFootballProject.ViewModels;
@@ -36,7 +37,17 @@ namespace MyFootballProject.Controllers
             {
                 _stadiumService.Update(club);
             }
-            return View();
+            return RedirectToAction(nameof(StadiumIndex));
+        }
+        public IActionResult Delete(int Id)
+        { 
+             _stadiumService.Delete(Id);
+            return RedirectToAction(nameof(StadiumIndex));
+        }
+        public IActionResult StadiumIndex()
+        {
+            var stadiums = _stadiumService.GetAll();
+            return View(stadiums);
         }
     }
 }
