@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using MyFootballProject.Data.Entities;
 using MyFootballProject.Services;
 using MyFootballProject.Services.Interfaces;
 using MyFootballProject.ViewModels;
@@ -17,28 +18,56 @@ namespace MyFootballProject.Controllers
         {
             return View();
         }
+        //[HttpGet]
+        //public IActionResult AddEdit(int? id)
+        //{
+        //    StadiumAddEditVM model = id.HasValue ?
+        //        _stadiumService.GetById(id.Value) :new StadiumAddEditVM(); 
+        //    return View(model);
+        //}
+
+        //[HttpPost]
+        //public IActionResult AddEdit(StadiumAddEditVM club)
+        //{
+        //    if (club.Id == 0)
+        //    {
+        //        _stadiumService.Add(club);
+        //    }
+        //    else
+        //    {
+        //        _stadiumService.Update(club);
+        //    }
+        //    return RedirectToAction(nameof(StadiumIndex));
+        //}
         [HttpGet]
-        public IActionResult AddEdit(int? id)
+        public IActionResult Add()
         {
-            StadiumAddEditVM model = id.HasValue ?
-                _stadiumService.GetById(id.Value) :
-                new StadiumAddEditVM(); 
+            StadiumAddEditVM model = new StadiumAddEditVM();
             return View(model);
         }
 
         [HttpPost]
-        public IActionResult AddEdit(StadiumAddEditVM club)
+        public IActionResult Add(StadiumAddEditVM club)
         {
-            if (club.Id == 0)
-            {
+            
                 _stadiumService.Add(club);
-            }
-            else
-            {
-                _stadiumService.Update(club);
-            }
+           
             return RedirectToAction(nameof(StadiumIndex));
         }
+
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            StadiumAddEditVM model = _stadiumService.GetById(id);
+            return View(model);
+        }
+        [HttpPost]
+        public IActionResult Edit(StadiumAddEditVM club)
+        {
+            _stadiumService.Update(club);
+            return RedirectToAction(nameof(StadiumIndex));
+        }
+
         public IActionResult Delete(int Id)
         { 
              _stadiumService.Delete(Id);

@@ -10,6 +10,6 @@ namespace MyFootballProject.Services.Interfaces
         public StadiumAddEditVM GetById(int id);
         public void Delete(int id);
         public List<StadiumDropDownVM> GetListForDropdown();
-        public List<Stadium> GetAll();
+        public List<StadiumAddEditVM> GetAll();
     }
 }

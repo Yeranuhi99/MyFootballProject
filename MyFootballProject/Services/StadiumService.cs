@@ -31,10 +31,18 @@ namespace MyFootballProject.Services
         _stadiumrepository.Delete(entity);
         }
 
-        public List<Stadium> GetAll()
+        public List<StadiumAddEditVM> GetAll()
         {
             var data = _stadiumrepository.GetAll();
-            return data;
+            var stadiumlist = data.Select(s => new StadiumAddEditVM
+            {
+                Id = s.Id,
+                Name = s.Name,
+                FoundingDate = s.FoundingDate,
+                Address = s.Address,
+                Capacity = s.Capacity,
+            }).ToList();
+            return stadiumlist; 
         }
 
         public StadiumAddEditVM GetById(int id)
@@ -62,9 +70,11 @@ namespace MyFootballProject.Services
         public void Update(StadiumAddEditVM Stadium)
         {
             var entity = _stadiumrepository.GetById(Stadium.Id);
+            entity.Id = Stadium.Id;
             entity.Name = Stadium.Name;
             entity.Address = Stadium.Address;
             entity.Capacity = Stadium.Capacity;
+            _stadiumrepository.SaveChanges();
         }
     }
 }
