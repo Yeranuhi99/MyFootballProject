@@ -1,0 +1,54 @@
+﻿@using MyFootballProject.ViewModels
+@model List<PresidentAddEditVM>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>List</title>
+</head>
+<body>
+    <h1>Clubs' Presidents' list</h1>
+    @if(Model.Count>0)
+    {
+    <table border="1">
+            <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>DOB</th>
+                <th>Country</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.FirstName</td>
+                    <td>@item.LastName</td>
+                    <td>@item.DOB</td>
+                    <td>@item.Country</td>
+                    <td>
+                        <a asp-action="AddEdit" asp-route-id="@item.Id">Edit</a>
+                    </td>
+                    <td>
+                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    }
+    else 
+    {
+    <span class="empty-result">No presidents found :(</span>
+    }
+    </table>
+</body>
+</html>

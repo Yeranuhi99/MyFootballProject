@@ -38,7 +38,17 @@ namespace MyFootballProject.Controllers
             {
                 _presidentservice.Update(president);
             }
-            return View();
+            return RedirectToAction(nameof(List));
+        }
+        public IActionResult List()
+        {
+            var presidents = _presidentservice.GetAll();
+            return View(presidents);
+        }
+        public IActionResult Delete(int id)
+        {
+            _presidentservice.GetById(id);
+            return RedirectToAction(nameof(List));
         }
     }
 }

@@ -34,6 +34,24 @@ namespace MyFootballProject.Services
 
         }
 
+        public List<ClubAddEditVM> GetAll()
+        {
+            var data = _clubRepository.GetAll();
+            var clublist = data.Select(c => new ClubAddEditVM
+            {
+                Id = c.Id,
+                Name = c.Name,
+                FoundingDate= c.FoundingDate,
+                League = c.League,
+                Country = c.Country,
+                PresidentId = c.PresidentId,
+                StadiumId = c.StadiumId,
+
+
+            }).ToList();
+            return clublist;
+        }
+
         public ClubAddEditVM GetById(int id)
         {
             var entity = _clubRepository.GetById(id);
@@ -62,12 +80,14 @@ namespace MyFootballProject.Services
         public void Update(ClubAddEditVM Club)
         {
             var entity = _clubRepository.GetById(Club.Id);
+            entity.Id = Club.Id;
             entity.Name = Club.Name;
             entity.FoundingDate = Club.FoundingDate;
             entity.League = Club.League; 
             entity.Country = Club.Country;
             entity.PresidentId = Club.PresidentId;
             entity.StadiumId = Club.StadiumId;
+            _clubRepository.SaveChanges();
         }
     }
 }

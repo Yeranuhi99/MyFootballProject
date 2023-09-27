@@ -33,6 +33,24 @@ namespace MyFootballProject.Services
             _playerrepository.Delete(entity);
         }
 
+        public List<PlayerAddEditVM> GetAll()
+        {
+            var data = _playerrepository.GetAll();
+            var playerlist = data.Select(p => new PlayerAddEditVM
+            {
+                Id = p.Id,
+                FirstName = p.FirstName,
+                LastName= p.LastName,
+                DOB = p.DOB,
+                Country = p.Country,
+                Position = p.Position,
+                NationalTeam = p.NationalTeam,
+                ClubId = p.ClubId,
+
+            }).ToList();
+            return playerlist;
+        }
+
         public PlayerAddEditVM GetById(int id)
         {
             var entity = _playerrepository.GetById(id);
@@ -52,12 +70,14 @@ namespace MyFootballProject.Services
         public void Update(PlayerAddEditVM Player)
         {
             var entity = _playerrepository.GetById(Player.Id);
+            entity.Id = Player.Id;
             entity.FirstName = Player.FirstName;
             entity.LastName = Player.LastName;
             entity.DOB = Player.DOB;
             entity.Country = Player.Country;
             entity.Position = Player.Position;
             entity.NationalTeam= Player.NationalTeam;
+            _playerrepository.SaveChanges();
         }
     }
 }

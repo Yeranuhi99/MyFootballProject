@@ -1,0 +1,58 @@
+﻿@using MyFootballProject.ViewModels
+@model List<ClubAddEditVM>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>List</title>
+</head>
+<body>
+       <h1>Coaches' list</h1>
+    @if(Model.Count>0)
+    {
+    <table border="1">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Founding Date</th>
+                <th>League</th>
+                <th>Country</th>
+                 <th>President</th>
+                <th>Stadium</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.FoundingDate</td>
+                    <td>@item.League</td>
+                    <td>@item.Country</td>
+                    <td>@item.PresidentId</td>
+                    <td>@item.StadiumId</td>
+                    <td>
+                        <a asp-action="AddEdit" asp-route-id="@item.Id">Edit</a>
+                    </td>
+                    <td>
+                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    }
+    else 
+    {
+    <span class="empty-result"> No clubs found :(</span>
+    }
+    </table>
+</body>
+</html>

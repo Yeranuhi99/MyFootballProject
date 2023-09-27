@@ -8,5 +8,6 @@ namespace MyFootballProject.Services.Interfaces
         public void Update(CoachAddEditVM Coach);
         public CoachAddEditVM GetById(int id);
         public void Delete(int id);
+        public List<CoachAddEditVM> GetAll();
     }
 }

@@ -39,8 +39,18 @@ namespace MyFootballProject.Controllers
             {
                 _coachservice.Update(coach);
             }
-            return View();
+            return RedirectToAction(nameof(List));
         }
-
+        public IActionResult List()
+        {
+            var coaches = _coachservice.GetAll();
+            return View(coaches);
+        }
+        public IActionResult Delete(int id)
+        {
+            _coachservice.GetById(id);
+            return RedirectToAction(nameof(List));
+        }
     }
 }
+

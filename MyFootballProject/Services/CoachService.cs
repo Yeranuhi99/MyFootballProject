@@ -31,6 +31,20 @@ namespace MyFootballProject.Services
             _coachrepository.Delete(entity);
         }
 
+        public List<CoachAddEditVM> GetAll()
+        {
+            var data = _coachrepository.GetAll();
+            var coachlist = data.Select(c => new CoachAddEditVM
+            {
+                Id = c.Id,
+                FirstName = c.FirstName,    
+                LastName = c.LastName,
+                DOB = c.DOB,
+                ClubId = c.ClubId,
+            }).ToList();
+            return coachlist;
+        }
+
         public CoachAddEditVM GetById(int id)
         {
             var entity = _coachrepository.GetById(id);
@@ -47,10 +61,12 @@ namespace MyFootballProject.Services
         public void Update(CoachAddEditVM Coach)
         {
             var entity = _coachrepository.GetById(Coach.Id);
+            entity.Id = Coach.Id;
             entity.FirstName = Coach.FirstName;
             entity.LastName = Coach.LastName;
             entity.DOB = Coach.DOB;
             entity.ClubId = Coach.ClubId;
+            _coachrepository.SaveChanges();
         }
     }
 }

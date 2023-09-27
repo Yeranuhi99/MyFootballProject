@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using MyFootballProject.Data.Repositories.Interfaces;
 using MyFootballProject.Services;
 using MyFootballProject.Services.Interfaces;
@@ -43,7 +44,17 @@ namespace MyFootballProject.Controllers
             {
                 _clubservice.Update(club);
             }
-            return View();
+            return RedirectToAction(nameof(List));
+        }
+        public IActionResult List()
+        {
+            var clubs = _clubservice.GetAll();
+            return View(clubs);
+        }
+        public IActionResult Delete(int id)
+        {
+            _clubservice.GetById(id);
+            return RedirectToAction(nameof(List));
         }
     }
 }

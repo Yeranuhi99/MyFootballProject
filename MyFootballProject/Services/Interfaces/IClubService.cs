@@ -9,5 +9,6 @@ namespace MyFootballProject.Services.Interfaces
         public ClubAddEditVM GetById(int id);
         public void Delete(int id);
         public List<ClubDropDownVM> GetListForDropdown();
+        public List<ClubAddEditVM> GetAll();
     }
 }

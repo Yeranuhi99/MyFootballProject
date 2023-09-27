@@ -37,43 +37,15 @@ namespace MyFootballProject.Controllers
             {
                 _stadiumService.Update(club);
             }
-            return RedirectToAction(nameof(StadiumIndex));
+            return RedirectToAction(nameof(List));
         }
-        //[httpget]
-        //public IActionResult Add()
-        //{
-        //    StadiumAddEditVM model = new StadiumAddEditVM();
-        //    return View(model);
-        //}
-
-        //[HttpPost]
-        //public IActionResult Add(StadiumAddEditVM club)
-        //{
-
-        //        _stadiumService.Add(club);
-
-        //    return RedirectToAction(nameof(StadiumIndex));
-        //}
-
-        //[HttpGet]
-        //public IActionResult Edit(int id)
-        //{
-        //    StadiumAddEditVM model = _stadiumService.GetById(id);
-        //    return View(model);
-        //}
-        //[HttpPost]
-        //public IActionResult Edit(StadiumAddEditVM club)
-        //{
-        //    _stadiumService.Update(club);
-        //    return RedirectToAction(nameof(StadiumIndex));
-        //}
 
         public IActionResult Delete(int Id)
         { 
              _stadiumService.Delete(Id);
-            return RedirectToAction(nameof(StadiumIndex));
+            return RedirectToAction(nameof(List));
         }
-        public IActionResult StadiumIndex()
+        public IActionResult List()
         {
             var stadiums = _stadiumService.GetAll();
             return View(stadiums);

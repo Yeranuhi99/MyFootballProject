@@ -31,6 +31,20 @@ namespace MyFootballProject.Services
             _presidentrepository.Delete(entity);
         }
 
+        public List<PresidentAddEditVM> GetAll()
+        {
+            var data= _presidentrepository.GetAll();
+            var presidentlist = data.Select(p=>new PresidentAddEditVM
+            {
+                Id = p.Id,
+                FirstName = p.FirstName,
+                LastName = p.LastName,
+                DOB = p.DOB,
+                Country = p.Country,
+            }).ToList();
+            return presidentlist;
+        }
+
         public PresidentAddEditVM GetById(int id)
         {
             var entity = _presidentrepository.GetById(id);
@@ -58,10 +72,12 @@ namespace MyFootballProject.Services
         public void Update(PresidentAddEditVM President)
         {
             var entity = _presidentrepository.GetById(President.Id);
+            entity.Id = President.Id;
             entity.FirstName= President.FirstName;
             entity.LastName= President.LastName;
             entity.DOB= President.DOB;
             entity.Country= President.Country;
+            _presidentrepository.SaveChanges();
         }
     }
 }
