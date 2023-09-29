@@ -5,6 +5,6 @@
         Goalkeeper = 1,
         Defender = 2,
         Midfielder = 3,
-        Attacker = 4
+        Forward = 4
     }
 }

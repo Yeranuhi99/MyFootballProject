@@ -1,4 +1,5 @@
-﻿using MyFootballProject.Data.Enum;
+﻿using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
+using MyFootballProject.Data.Enum;
 
 namespace MyFootballProject.ViewModels
 {
@@ -11,5 +12,8 @@ namespace MyFootballProject.ViewModels
         public Country Country { get; set; }
         public int PresidentId { get; set; }
         public int StadiumId { get; set; }
+        public string PresidentName { get; set; }
+        public string StadiumName { get; set; }
     }
+    
 }

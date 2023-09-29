@@ -1,4 +1,5 @@
 ﻿using MyFootballProject.Data.Entities;
+using Microsoft.EntityFrameworkCore;
 using MyFootballProject.Data.Repositories.Interfaces;
 
 namespace MyFootballProject.Data.Repositories
@@ -24,7 +25,7 @@ namespace MyFootballProject.Data.Repositories
 
         public List<Club> GetAll()
         {
-            var entity = _context.Clubs.ToList();
+            var entity = _context.Clubs.Include(c=>c.President).Include(s=>s.Stadium).ToList();
             return entity;
         }
 

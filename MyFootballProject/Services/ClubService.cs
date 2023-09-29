@@ -41,13 +41,13 @@ namespace MyFootballProject.Services
             {
                 Id = c.Id,
                 Name = c.Name,
-                FoundingDate= c.FoundingDate,
+                FoundingDate = c.FoundingDate,
                 League = c.League,
                 Country = c.Country,
                 PresidentId = c.PresidentId,
                 StadiumId = c.StadiumId,
-
-
+                PresidentName = c.President.FirstName + " " + c.President.LastName,
+                StadiumName = c.Stadium.Name
             }).ToList();
             return clublist;
         }
@@ -80,7 +80,6 @@ namespace MyFootballProject.Services
         public void Update(ClubAddEditVM Club)
         {
             var entity = _clubRepository.GetById(Club.Id);
-            entity.Id = Club.Id;
             entity.Name = Club.Name;
             entity.FoundingDate = Club.FoundingDate;
             entity.League = Club.League; 

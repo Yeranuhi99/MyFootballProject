@@ -12,7 +12,7 @@
     <title>List</title>
 </head>
 <body>
-       <h1>Coaches' list</h1>
+       <h1>Clubs' list</h1>
     @if(Model.Count>0)
     {
     <table border="1">
@@ -36,8 +36,8 @@
                     <td>@item.FoundingDate</td>
                     <td>@item.League</td>
                     <td>@item.Country</td>
-                    <td>@item.PresidentId</td>
-                    <td>@item.StadiumId</td>
+                    <td>@item.PresidentName</td>
+                    <td>@item.StadiumName</td>
                     <td>
                         <a asp-action="AddEdit" asp-route-id="@item.Id">Edit</a>
                     </td>

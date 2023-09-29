@@ -18,6 +18,7 @@ namespace MyFootballProject.Data.Repositories
 
         public void Delete(Player Player)
         {
+
             _context.Remove(Player);
             _context.SaveChanges();
         }

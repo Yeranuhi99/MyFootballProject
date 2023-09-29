@@ -62,7 +62,7 @@
                 <option>Please select the club </option>
                 @foreach (ClubDropDownVM item in ViewBag.Clubdropdown)
                 {
-                    <option value="item.Id">@item.Name</option>
+                    <option value="@item.Id">@item.Name</option>
                 }
             </select>
         </div>

@@ -70,7 +70,6 @@ namespace MyFootballProject.Services
         public void Update(StadiumAddEditVM Stadium)
         {
             var entity = _stadiumrepository.GetById(Stadium.Id);
-            entity.Id = Stadium.Id;
             entity.Name = Stadium.Name;
             entity.Address = Stadium.Address;
             entity.Capacity = Stadium.Capacity;

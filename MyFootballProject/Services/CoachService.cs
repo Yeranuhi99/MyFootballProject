@@ -61,7 +61,6 @@ namespace MyFootballProject.Services
         public void Update(CoachAddEditVM Coach)
         {
             var entity = _coachrepository.GetById(Coach.Id);
-            entity.Id = Coach.Id;
             entity.FirstName = Coach.FirstName;
             entity.LastName = Coach.LastName;
             entity.DOB = Coach.DOB;

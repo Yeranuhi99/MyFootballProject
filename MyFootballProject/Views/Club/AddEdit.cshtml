@@ -53,7 +53,7 @@
                 <option>Please select the stadium </option>
                 @foreach (StadiumDropDownVM item in ViewBag.StadiumDropDown)
                 {
-                    <option value="item.Id">@item.Name</option>
+                    <option value="@item.Id">@item.Name</option>
                 }
             </select>
         </div>
@@ -63,7 +63,7 @@
             <option> Please select the president</option>
             @foreach(PresidentDropDownVM item in ViewBag.PresidentDropDown)
             {
-                   <option value="item.Id">@item.FirstName + @item.LasttName</option> 
+                   <option value="@item.Id">@(item.FirstName + " " + @item.LastName)</option> 
             }
         </select>
     </div>

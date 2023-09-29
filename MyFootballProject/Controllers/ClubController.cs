@@ -53,7 +53,7 @@ namespace MyFootballProject.Controllers
         }
         public IActionResult Delete(int id)
         {
-            _clubservice.GetById(id);
+            _clubservice.Delete(id);
             return RedirectToAction(nameof(List));
         }
     }

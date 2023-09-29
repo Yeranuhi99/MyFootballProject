@@ -25,6 +25,7 @@ namespace MyFootballProject.Services
                 NationalTeam = Player.NationalTeam,
                 ClubId = Player.ClubId,
             };
+            _playerrepository.Add(player);
         }
 
         public void Delete(int id)
@@ -70,7 +71,6 @@ namespace MyFootballProject.Services
         public void Update(PlayerAddEditVM Player)
         {
             var entity = _playerrepository.GetById(Player.Id);
-            entity.Id = Player.Id;
             entity.FirstName = Player.FirstName;
             entity.LastName = Player.LastName;
             entity.DOB = Player.DOB;
