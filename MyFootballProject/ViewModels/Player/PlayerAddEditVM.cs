@@ -14,5 +14,6 @@ namespace MyFootballProject.ViewModels
         public Position Position { get; set; }
         public string? NationalTeam { get; set; }
         public int ClubId { get; set; }
+        public string ClubName { get; set; }
     }
 }

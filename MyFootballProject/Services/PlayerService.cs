@@ -41,12 +41,13 @@ namespace MyFootballProject.Services
             {
                 Id = p.Id,
                 FirstName = p.FirstName,
-                LastName= p.LastName,
+                LastName = p.LastName,
                 DOB = p.DOB,
                 Country = p.Country,
                 Position = p.Position,
                 NationalTeam = p.NationalTeam,
                 ClubId = p.ClubId,
+                ClubName = p.Club.Name
 
             }).ToList();
             return playerlist;
