@@ -4,6 +4,7 @@ using MyFootballProject.Data.Repositories.Interfaces;
 using MyFootballProject.Services;
 using MyFootballProject.Services.Interfaces;
 using MyFootballProject.ViewModels;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace MyFootballProject.Controllers
 {
@@ -12,11 +13,15 @@ namespace MyFootballProject.Controllers
         private readonly IClubService _clubservice;
         private readonly IStadiumService _stadiumservice;
         private readonly IPresidentService _presidentservice;
-        public ClubController(IClubService clubservice, IStadiumService stadiumservice, IPresidentService presidentservice)
+        private readonly IWebHostEnvironment _webHostEnvironment;
+        private readonly IUnitOfWork _unitOfWork;
+        public ClubController(IClubService clubservice, IStadiumService stadiumservice, IPresidentService presidentservice, IWebHostEnvironment webHostEnvironment, IUnitOfWork unitOfWork)
         {
             _clubservice = clubservice;
             _stadiumservice = stadiumservice;
             _presidentservice = presidentservice;
+            _webHostEnvironment = webHostEnvironment;
+            _unitOfWork = unitOfWork;
         }
         public IActionResult Index()
         {
@@ -34,8 +39,14 @@ namespace MyFootballProject.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddEdit(ClubAddEditVM club)
+        public IActionResult AddEdit(ClubAddEditVM club, IFormFile Image)
         {
+            if (Image != null)
+            {
+                string path = "/Images/" + Image.FileName;
+                using (var fileStream = new FileStream(_webHostEnvironment.WebRootPath + path, FileMode.Create)) { Image.CopyTo(fileStream); }
+                club.FileName = path;
+            }
             if (club.Id == 0)
             {
                 _clubservice.Add(club);

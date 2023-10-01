@@ -15,7 +15,7 @@
 </head>
 <body>
     <h1>Add or edit the club</h1>
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
         <input type="hidden" asp-for="Id" /> 
     <div>
         <label>
@@ -66,6 +66,10 @@
                    <option value="@item.Id">@(item.FirstName + " " + @item.LastName)</option> 
             }
         </select>
+    </div>
+    <div>
+        <label>Image</label>
+        <input type="file" name="Image"/>
     </div>
     <button type="submit"> Save </button>
     </form>

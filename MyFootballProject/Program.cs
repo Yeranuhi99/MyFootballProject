@@ -27,6 +27,7 @@ namespace MyFootballProject
             builder.Services.AddScoped<IPlayerService, PlayerService>();
             builder.Services.AddScoped<IPresidentService, PresidentService>();
             builder.Services.AddScoped<IStadiumService, StadiumService>();
+            builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

@@ -13,7 +13,7 @@ namespace MyFootballProject.Services
         {
                 _clubRepository = clubRepository;
         }
-        public void Add(ClubAddEditVM Club)
+        public int Add(ClubAddEditVM Club)
         {
             Club club = new Club()
             {
@@ -23,8 +23,11 @@ namespace MyFootballProject.Services
                 Country = Club.Country,
                 PresidentId = Club.PresidentId,
                 StadiumId = Club.StadiumId,
-            };
+                FileName = Club.FileName
+
+    };
             _clubRepository.Add(club);
+            return Club.Id;
         }
 
         public void Delete(int id)
@@ -47,7 +50,8 @@ namespace MyFootballProject.Services
                 PresidentId = c.PresidentId,
                 StadiumId = c.StadiumId,
                 PresidentName = c.President.FirstName + " " + c.President.LastName,
-                StadiumName = c.Stadium.Name
+                StadiumName = c.Stadium.Name,
+                FileName = c.FileName
             }).ToList();
             return clublist;
         }
@@ -64,6 +68,7 @@ namespace MyFootballProject.Services
                 Country = entity.Country,
                 PresidentId = entity.PresidentId,
                 StadiumId = entity.StadiumId,
+                FileName = entity.FileName
             };
         }
 
@@ -86,6 +91,7 @@ namespace MyFootballProject.Services
             entity.Country = Club.Country;
             entity.PresidentId = Club.PresidentId;
             entity.StadiumId = Club.StadiumId;
+            entity.FileName = Club.FileName;
             _clubRepository.SaveChanges();
         }
     }

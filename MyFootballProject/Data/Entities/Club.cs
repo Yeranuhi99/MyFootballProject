@@ -19,5 +19,6 @@ namespace MyFootballProject.Data.Entities
         [ForeignKey("Stadium")]
         public int StadiumId { get; set; }
         public Stadium Stadium { get; set; }
+        public string FileName { get; set; }
     }
 }

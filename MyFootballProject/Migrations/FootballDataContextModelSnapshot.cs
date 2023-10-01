@@ -33,6 +33,10 @@ namespace MyFootballProject.Migrations
                     b.Property<int>("Country")
                         .HasColumnType("int");
 
+                    b.Property<string>("FileName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("FoundingDate")
                         .HasColumnType("datetime2");
 

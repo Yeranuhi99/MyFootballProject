@@ -6,21 +6,24 @@ namespace MyFootballProject.Data.Repositories
 {
     public class ClubRepository : IClubRepository
     {
+        private readonly IUnitOfWork _unitOfWork;
         private readonly FootballDataContext _context;
-        public ClubRepository(FootballDataContext context)
+        public ClubRepository(FootballDataContext context, IUnitOfWork unitOfWork)
         {
             _context = context;
+            _unitOfWork = unitOfWork;
         }
-        public void Add(Club Club)
+        public int Add(Club Club)
         {
             _context.Add(Club);
-            _context.SaveChanges();
+            _unitOfWork.Save();
+            return Club.Id;
         }
 
         public void Delete(Club Club)
         {
             _context.Remove(Club);
-            _context.SaveChanges();
+            _unitOfWork.Save();
         }
 
         public List<Club> GetAll()
@@ -37,7 +40,7 @@ namespace MyFootballProject.Data.Repositories
 
         public void SaveChanges()
         {
-            _context.SaveChanges();
+            _unitOfWork.Save();
         }
     }
 }
