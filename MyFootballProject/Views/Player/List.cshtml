@@ -18,6 +18,7 @@
     <table border="1">
             <thead>
             <tr>
+                <th>Image</th>
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>DOB</th>
@@ -33,6 +34,7 @@
             @foreach (var item in Model)
             {
                 <tr>
+                    <td><img style="max-width:77px;" src="@item.ImageName"/></td>
                     <td>@item.FirstName</td>
                     <td>@item.LastName</td>
                     <td>@item.DOB</td>

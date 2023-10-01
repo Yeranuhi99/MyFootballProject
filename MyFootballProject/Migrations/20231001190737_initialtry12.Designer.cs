@@ -12,8 +12,8 @@ using MyFootballProject.Data;
 namespace MyFootballProject.Migrations
 {
     [DbContext(typeof(FootballDataContext))]
-    [Migration("20230926181836_initfromnotebook")]
-    partial class initfromnotebook
+    [Migration("20231001190737_initialtry12")]
+    partial class initialtry12
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -41,6 +41,10 @@ namespace MyFootballProject.Migrations
 
                     b.Property<int>("League")
                         .HasColumnType("int");
+
+                    b.Property<string>("LogoImage")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -108,6 +112,10 @@ namespace MyFootballProject.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

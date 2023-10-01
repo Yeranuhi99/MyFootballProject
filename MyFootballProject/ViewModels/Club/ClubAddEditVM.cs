@@ -14,7 +14,7 @@ namespace MyFootballProject.ViewModels
         public int StadiumId { get; set; }
         public string PresidentName { get; set; }
         public string StadiumName { get; set; }
-        public string FileName { get; set; }
+        public string LogoImage { get; set; }
     }
     
 }

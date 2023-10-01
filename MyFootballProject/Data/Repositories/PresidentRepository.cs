@@ -5,21 +5,24 @@ namespace MyFootballProject.Data.Repositories
 {
     public class PresidentRepository : IPresidentRepository
     {
+        private readonly IUnitOfWork _unitOfWork;
         private readonly FootballDataContext _context;
-        public PresidentRepository(FootballDataContext context)
+        public PresidentRepository(FootballDataContext context, IUnitOfWork unitOfWork)
         {
             _context = context;
+            _unitOfWork = unitOfWork;
         }
-        public void Add(President President)
+        public int Add(President President)
         {
             _context.Add(President);
-            _context.SaveChanges();
+            _unitOfWork.Save();
+            return President.Id;
         }
 
         public void Delete(President President)
         {
             _context.Remove(President);
-            _context.SaveChanges();
+            _unitOfWork.Save();
         }
 
         public List<President> GetAll()
@@ -36,7 +39,7 @@ namespace MyFootballProject.Data.Repositories
 
         public void SaveChanges()
         {
-            _context.SaveChanges();
+            _unitOfWork.Save();
         }
     }
 }

@@ -3,6 +3,7 @@ using MyFootballProject.Data.Entities;
 using MyFootballProject.Services.Interfaces;
 using MyFootballProject.ViewModels;
 using MyFootballProject.Data.Repositories.Interfaces;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace MyFootballProject.Services
 {
@@ -24,6 +25,7 @@ namespace MyFootballProject.Services
                 Position = Player.Position,
                 NationalTeam = Player.NationalTeam,
                 ClubId = Player.ClubId,
+                ImageName = Player.ImageName,
             };
             _playerrepository.Add(player);
         }
@@ -47,7 +49,8 @@ namespace MyFootballProject.Services
                 Position = p.Position,
                 NationalTeam = p.NationalTeam,
                 ClubId = p.ClubId,
-                ClubName = p.Club.Name
+                ClubName = p.Club.Name,
+                ImageName = p.ImageName,
 
             }).ToList();
             return playerlist;
@@ -66,6 +69,7 @@ namespace MyFootballProject.Services
                 Position = entity.Position,
                 NationalTeam = entity.NationalTeam,
                 ClubId = entity.ClubId,
+                ImageName = entity.ImageName,
             };
         }
 
@@ -78,6 +82,7 @@ namespace MyFootballProject.Services
             entity.Country = Player.Country;
             entity.Position = Player.Position;
             entity.NationalTeam= Player.NationalTeam;
+            entity.ImageName = Player.ImageName;
             _playerrepository.SaveChanges();
         }
     }

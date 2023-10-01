@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace MyFootballProject.Migrations
 {
     /// <inheritdoc />
-    public partial class init : Migration
+    public partial class initialtry12 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -54,7 +54,8 @@ namespace MyFootballProject.Migrations
                     League = table.Column<int>(type: "int", nullable: false),
                     Country = table.Column<int>(type: "int", nullable: false),
                     PresidentId = table.Column<int>(type: "int", nullable: false),
-                    StadiumId = table.Column<int>(type: "int", nullable: false)
+                    StadiumId = table.Column<int>(type: "int", nullable: false),
+                    LogoImage = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -107,7 +108,8 @@ namespace MyFootballProject.Migrations
                     Country = table.Column<int>(type: "int", nullable: false),
                     Position = table.Column<int>(type: "int", nullable: false),
                     NationalTeam = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ClubId = table.Column<int>(type: "int", nullable: false)
+                    ClubId = table.Column<int>(type: "int", nullable: false),
+                    ImageName = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {

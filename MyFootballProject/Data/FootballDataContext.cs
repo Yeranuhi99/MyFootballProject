@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MyFootballProject.Data.Entities;
-using System.Data;
 
 namespace MyFootballProject.Data
 {

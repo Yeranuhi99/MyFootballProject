@@ -45,7 +45,7 @@ namespace MyFootballProject.Controllers
             {
                 string path = "/Images/" + Image.FileName;
                 using (var fileStream = new FileStream(_webHostEnvironment.WebRootPath + path, FileMode.Create)) { Image.CopyTo(fileStream); }
-                club.FileName = path;
+                club.LogoImage = path;
             }
             if (club.Id == 0)
             {

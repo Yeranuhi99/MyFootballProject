@@ -6,15 +6,18 @@ namespace MyFootballProject.Data.Repositories
 {
     public class PlayerRepository : IPlayerRepository
     {
+        private readonly IUnitOfWork _unitOfWork;
         private readonly FootballDataContext _context;
-        public PlayerRepository(FootballDataContext context)
+        public PlayerRepository(FootballDataContext context, IUnitOfWork unitOfWork)
         {
             _context = context;
+            _unitOfWork = unitOfWork;
         }
-        public void Add(Player Player)
+        public int Add(Player Player)
         {
             _context.Add(Player);
-            _context.SaveChanges();
+            _unitOfWork.Save();
+            return Player.Id;
         }
 
         public void Delete(Player Player)
@@ -38,7 +41,7 @@ namespace MyFootballProject.Data.Repositories
 
         public void SaveChanges()
         {
-            _context.SaveChanges();
+            _unitOfWork.Save();
         }
     }
 }

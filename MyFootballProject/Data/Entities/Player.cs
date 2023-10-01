@@ -15,6 +15,7 @@ namespace MyFootballProject.Data.Entities
         [ForeignKey("Club")]
         public int ClubId { get; set; }
         public Club Club { get; set; }
+        public string ImageName { get; set; }
 
     }
 }

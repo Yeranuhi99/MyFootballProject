@@ -15,5 +15,6 @@ namespace MyFootballProject.ViewModels
         public string? NationalTeam { get; set; }
         public int ClubId { get; set; }
         public string ClubName { get; set; }
+        public string ImageName { get; set; }
     }
 }

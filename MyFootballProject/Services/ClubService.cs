@@ -23,9 +23,9 @@ namespace MyFootballProject.Services
                 Country = Club.Country,
                 PresidentId = Club.PresidentId,
                 StadiumId = Club.StadiumId,
-                FileName = Club.FileName
+                LogoImage = Club.LogoImage
 
-    };
+            };
             _clubRepository.Add(club);
             return Club.Id;
         }
@@ -51,7 +51,7 @@ namespace MyFootballProject.Services
                 StadiumId = c.StadiumId,
                 PresidentName = c.President.FirstName + " " + c.President.LastName,
                 StadiumName = c.Stadium.Name,
-                FileName = c.FileName
+                LogoImage = c.LogoImage
             }).ToList();
             return clublist;
         }
@@ -68,7 +68,7 @@ namespace MyFootballProject.Services
                 Country = entity.Country,
                 PresidentId = entity.PresidentId,
                 StadiumId = entity.StadiumId,
-                FileName = entity.FileName
+                LogoImage = entity.LogoImage
             };
         }
 
@@ -91,7 +91,7 @@ namespace MyFootballProject.Services
             entity.Country = Club.Country;
             entity.PresidentId = Club.PresidentId;
             entity.StadiumId = Club.StadiumId;
-            entity.FileName = Club.FileName;
+            entity.LogoImage = Club.LogoImage;
             _clubRepository.SaveChanges();
         }
     }

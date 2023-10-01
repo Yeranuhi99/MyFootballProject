@@ -1,6 +1,5 @@
 ﻿using MyFootballProject.Data.Enum;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Diagnostics.Contracts;
 
 namespace MyFootballProject.Data.Entities
 {
@@ -19,6 +18,6 @@ namespace MyFootballProject.Data.Entities
         [ForeignKey("Stadium")]
         public int StadiumId { get; set; }
         public Stadium Stadium { get; set; }
-        public string FileName { get; set; }
+        public string LogoImage { get; set; }
     }
 }

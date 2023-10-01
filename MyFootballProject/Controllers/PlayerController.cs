@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MyFootballProject.Data.Repositories.Interfaces;
 using MyFootballProject.Services;
 using MyFootballProject.Services.Interfaces;
 using MyFootballProject.ViewModels;
@@ -9,10 +10,14 @@ namespace MyFootballProject.Controllers
     {
         private readonly IPlayerService _playerService;
         private readonly IClubService _clubService;
-        public PlayerController(IPlayerService playerService, IClubService clubService)
+        private readonly IWebHostEnvironment _webHostEnvironment;
+        private readonly IUnitOfWork _unitOfWork;
+        public PlayerController(IPlayerService playerService, IClubService clubService, IWebHostEnvironment webHostEnvironment, IUnitOfWork unitOfWork)
         {
-                _playerService = playerService;
-                _clubService = clubService;
+            _playerService = playerService;
+            _clubService = clubService;
+            _webHostEnvironment = webHostEnvironment;
+            _unitOfWork = unitOfWork;
         }
         public IActionResult Index()
         {
@@ -28,15 +33,21 @@ namespace MyFootballProject.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddEdit(PlayerAddEditVM club)
+        public IActionResult AddEdit(PlayerAddEditVM player, IFormFile Image)
         {
-            if (club.Id == 0)
+            if (Image != null)
             {
-                _playerService.Add(club);
+                string path = "/PlayerImages/" + Image.FileName;
+                using (var fileStream = new FileStream(_webHostEnvironment.WebRootPath + path, FileMode.Create)) { Image.CopyTo(fileStream); }
+                player.ImageName = path;
+            }
+            if (player.Id == 0)
+            {
+                _playerService.Add(player);
             }
             else
             {
-                _playerService.Update(club);
+                _playerService.Update(player);
             }
             return RedirectToAction(nameof(List));
         }

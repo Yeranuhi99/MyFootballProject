@@ -6,20 +6,23 @@ namespace MyFootballProject.Data.Repositories
     public class CoachRepository : ICoachRepository
     {
         private readonly FootballDataContext _context;
-        public CoachRepository(FootballDataContext context)
+        private readonly IUnitOfWork _unitOfWork;
+        public CoachRepository(FootballDataContext context, IUnitOfWork unitOfWork)
         {
             _context = context;
+            _unitOfWork= unitOfWork;
         }
-        public void Add(Coach Coach)
+        public int Add(Coach Coach)
         {
             _context.Add(Coach);
-            _context.SaveChanges();
+            _unitOfWork.Save();
+            return Coach.Id;    
         }
 
         public void Delete(Coach Coach)
         {
             _context.Remove(Coach);
-            _context.SaveChanges();
+            _unitOfWork.Save();
         }
 
         public List<Coach> GetAll()
@@ -36,7 +39,7 @@ namespace MyFootballProject.Data.Repositories
 
         public void SaveChanges()
         {
-            _context.SaveChanges();
+            _unitOfWork.Save();
         }
     }
 }
