@@ -18,32 +18,26 @@
     <table border="1">
             <thead>
             <tr>
+                <th>Image</th>
                 <th>Name</th>
                 <th>Founding Date</th>
                 <th>League</th>
                 <th>Country</th>
-                 <th>President</th>
+                <th>President</th>
                 <th>Stadium</th>
-                <th></th>
-                <th></th>
             </tr>
         </thead>
         <tbody>
             @foreach (var item in Model)
             {
                 <tr>
-                    <td>>@item.Name</td>
+                    <td><img style="max-width:50px;" src="@item.LogoImage"/></td>
+                    <td>@item.Name</td>
                     <td>@item.FoundingDate</td>
                     <td>@item.League</td>
                     <td>@item.Country</td>
                     <td>@item.PresidentName</td>
                     <td>@item.StadiumName</td>
-                    <td>
-                        <a asp-action="AddEdit" asp-route-id="@item.Id">Edit</a>
-                    </td>
-                    <td>
-                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                    </td>
                 </tr>
             }
         </tbody>
@@ -54,8 +48,5 @@
     <span class="empty-result"> No clubs found :(</span>
     }
     </table>
-    <div>
-    <a asp-action="AddEdit">Add club</a>
-    </div>
 </body>
 </html>

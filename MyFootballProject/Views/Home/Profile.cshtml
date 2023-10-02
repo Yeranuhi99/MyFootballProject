@@ -1,0 +1,28 @@
+﻿@using MyFootballProject.ViewModels
+@model PlayerAddEditVM
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Profile</title>
+</head>
+<body>
+        <input type="hidden" asp-for="@Model.Id"/> 
+    <div> 
+        <h1>@(Model.FirstName + " " + Model.LastName)</h1>
+    </div>
+    <div><img style="max-width:80px ;" src="@Model.ImageName"> </div>
+    <div></div>
+  
+    
+   
+    <h>@Model.Country</h2>
+    <>
+      
+</body>
+</html>
