@@ -21,9 +21,7 @@
                 <th>Image</th>
                 <th> Name</th>
                 <th>DOB</th>
-                <th>Country</th>
                 <th>Position</th>
-                <th>National Team</th>
                 <th>Club</th>
             </tr>
         </thead>
@@ -32,12 +30,9 @@
             {
                 <tr>
                     <td><img style="max-width:77px;" src="@item.ImageName"/></td>
-                    <td><a asp-action="Profile">@(item.FirstName + " " + item.LastName)</a></td>
-                    <td>@item.LastName</td>
+                    <td><a asp-action="Profile" asp-route-id=@item.Id>@(item.FirstName + " " + item.LastName)</a></td>
                     <td>@item.DOB</td>
-                    <td>@item.Country</td>
                     <td>@item.Position</td>
-                    <td>@item.NationalTeam</td>
                     <td>@item.ClubName</td>
                     </tr>
             }

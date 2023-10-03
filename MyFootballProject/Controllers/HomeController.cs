@@ -39,7 +39,8 @@ namespace MyFootballProject.Controllers
         }
         public IActionResult Profile(int id)
         {
-           var player= _playerservice.GetById(id);
+            ViewBag.Clubdropdown = _clubservice.GetListForDropdown();
+            var player = _playerservice.GetById(id);
          
             return View(player);
         }

@@ -8,21 +8,52 @@
 
 <html>
 <head>
+    <style>
+        #container  {
+            height: 730px;
+            border: 2px solid black;
+       margin: 0 300px;
+
+        }
+        h1{
+        text-align: center;
+
+        }
+        #h2container{
+
+        margin: 0 390px;
+
+        }
+        #imagecontaier{
+         margin: 0 205px;
+        float:right;
+        }
+
+    </style>
     <meta name="viewport" content="width=device-width" />
     <title>Profile</title>
 </head>
 <body>
-        <input type="hidden" asp-for="@Model.Id"/> 
+        <input type="hidden" asp-route-id="@Model.Id"/> 
+        <div id="container" >
     <div> 
         <h1>@(Model.FirstName + " " + Model.LastName)</h1>
     </div>
-    <div><img style="max-width:80px ;" src="@Model.ImageName"> </div>
-    <div></div>
-  
-    
-   
-    <h>@Model.Country</h2>
-    <>
+    <div id="imagecontaier"><img width:70px height:100px src="@Model.ImageName"> </div>
+    <div id="h2container">
+    <div> <h2> Birthday:  @Model.DOB</h2></div>
+    <div> <h2> Country:  @Model.Country</h2></div>
+    <div> <h2> National Team:  @Model.NationalTeam</h2></div>
+    @foreach(var item in  ViewBag.Clubdropdown)
+    {
+    if(@item.Id == @Model.ClubId)
+    {
+    <h2>Club: @item.Name</h2>
+    }
+    }
+    <div> <h2> Position:  @Model.Position</h2></div>
+    </div>
+    </div>
       
 </body>
 </html>
