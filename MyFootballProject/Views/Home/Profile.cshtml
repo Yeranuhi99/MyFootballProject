@@ -1,4 +1,4 @@
-﻿@using MyFootballProject.ViewModels
+﻿@*@using MyFootballProject.ViewModels
 @model PlayerAddEditVM
 @{
     Layout = null;
@@ -55,5 +55,63 @@
     </div>
     </div>
       
+</body>
+</html>*@
+
+@using MyFootballProject.ViewModels
+@model PlayerAddEditVM
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Profile</title>
+    <style>
+.all{
+	width:60%;
+	margin: 0 auto;
+}
+.all h1{
+	text-align:center;
+}
+.flex{
+	display:flex;
+    width:100%;
+}
+.flex img{
+	width:50%;
+}
+.information{
+	width:50%;
+}
+</style>
+</head>
+<body>
+
+<div class="all">
+	<h1>@(Model.FirstName + " " + Model.LastName)</h1>
+	<div class="flex">
+		<img src="@Model.ImageName"/>
+		<div class="information">
+			<h2> Birthday:  @Model.DOB</h2>
+            <h2> Country:  @Model.Country</h2>
+            <h2> National Team:  @Model.NationalTeam</h2>
+            @foreach(var item in  ViewBag.Clubdropdown)
+            {
+                if(@item.Id == @Model.ClubId)
+                {
+                    <h2>Club: @item.Name</h2>
+                }
+            }
+            <h2> Position:  @Model.Position</h2>
+		</div>
+	</div>
+</div>
+
+
+
 </body>
 </html>
